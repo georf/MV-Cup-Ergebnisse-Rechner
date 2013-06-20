@@ -29,7 +29,7 @@ $(function() {
 
         this.setPoints = function(p) {
             p = p + "";
-            if (p.match(/[0-9]{2}/)) {
+            if (p.match(/[0-9]{1,2}/)) {
                 points = parseInt(p);
             } else {
                 points = 0;
