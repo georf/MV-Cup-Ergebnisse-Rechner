@@ -1,4 +1,7 @@
 $(function() {
+    "use strict";
+    var max = 3;
+
     var textarea = $('textarea');
     var pre = $('pre');
 
@@ -104,7 +107,7 @@ $(function() {
             var e = new Entry(bestTime);
             e.setPoints(points);
 
-            output += "\t" + part + "\t" + time2string(time) + "\t" + e;
+            output += "\t" + this.getTimeLength() + "\t" + time2string(time) + "\t" + e;
             return output;
         };
 
@@ -120,15 +123,23 @@ $(function() {
             part = p;
         };
 
-        this.getPart = function() {
+        this.getPart = function () {
             return part;
+        };
+
+        this.getTimeLength = function () {
+            var i, length = 0;
+            for (i = entries.length - 1; i >= 0; i--) {
+                if (entries[i].getTime() != timeN) length++;
+            }
+            return length;
         };
 
         this.setTime = function (t) {
             time = t;
         };
 
-        this.getTime = function() {
+        this.getTime = function () {
             return time;
         };
 
@@ -163,7 +174,6 @@ $(function() {
     };
 
     var calculateResult = function () {
-        var max = 3;
         var i, entries, j, points, time, bestTime, part;
         for (i = 0; i < persons.length; i++) {
 
@@ -197,11 +207,11 @@ $(function() {
         }
 
         persons.sort(function( a , b ) {
-            if (a.getPoints() < b.getPoints()) return 1;
-            if (a.getPoints() > b.getPoints()) return -1;
-
             if (a.getPart() < b.getPart()) return 1;
             if (a.getPart() > b.getPart()) return -1;
+
+            if (a.getPoints() < b.getPoints()) return 1;
+            if (a.getPoints() > b.getPoints()) return -1;
 
             if (a.getTime() > b.getTime()) return 1;
             if (a.getTime() < b.getTime()) return -1;
@@ -216,7 +226,7 @@ $(function() {
 
     $('#btnCurrentList').click(function() {
         var content = textarea.val();
-        lines = content.split("\n");
+        var lines = content.split("\n");
 
         var maxCompetitionCount = 0;
         var currentCompetitionCount = 0;
@@ -253,7 +263,7 @@ $(function() {
 
     $('#btnNextList').click(function() {
         var content = textarea.val();
-        lines = content.split("\n");
+        var lines = content.split("\n");
 
         var i, j, o, cols, entry, person, person2;
         for (i = 0; i < lines.length; i++) {
