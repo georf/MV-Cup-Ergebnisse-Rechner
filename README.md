@@ -5,7 +5,7 @@ Dieser Rechner dient zum Ausrechnen der Gesamtwertung des [MV-Hinderniscups](htt
 
 Die Berechnung der Pätze erfolgt auf folgender Grundlage:
 
-1. Von Jedem Wettkämpfer werden die Punkte der drei besten Platzierungen addiert
+1. Von jedem Wettkämpfer werden die Punkte der drei besten Platzierungen addiert
 2. Von diesen 3 Platzierungen werden die Zeiten addiert
 3. Wettkämpfer werden nach Anzahl der Teilnahme sortiert. Mehr als 3 Teilnahmen sind egal.
 4. Wettkämpfer mit gleicher Anzahl an Teilnahmen (3.) werden nach Punkten (1.) sortiert.
