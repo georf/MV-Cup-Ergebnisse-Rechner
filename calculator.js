@@ -50,7 +50,7 @@ $(function() {
     };
 
     var time2string = function (time) {
-        if (time == timeD) {
+        if (time >= timeD) {
             return "D";
         } else if (time === timeN) {
             return "";
